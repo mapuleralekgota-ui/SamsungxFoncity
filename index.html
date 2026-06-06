@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Samsung Galaxy x HCE Sun City Takeover 2026</title>
+  <style>
+    :root {
+      --ink: #05070d;
+      --deep: #07111f;
+      --panel: rgba(255,255,255,.07);
+      --line: rgba(255,255,255,.16);
+      --paper: #f5f8ff;
+      --muted: rgba(245,248,255,.72);
+      --blue: #2b72ff;
+      --blue-2: #08c6ff;
+      --silver: #d9e2f2;
+      --violet: #7b61ff;
+      --shadow: 0 28px 90px rgba(0,0,0,.42);
+      --radius: 8px;
+      --max: 1240px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        linear-gradient(118deg, rgba(8,198,255,.12), transparent 36%),
+        linear-gradient(145deg, #02040a 0%, var(--deep) 52%, #000 100%);
+      color: var(--paper);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.45;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.024) 1px, transparent 1px);
+      background-size: 44px 44px;
+      opacity: .42;
+      z-index: -2;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(0deg, rgba(255,255,255,.018) 0, rgba(255,255,255,.018) 1px, transparent 1px, transparent 5px);
+      opacity: .45;
+      z-index: -1;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+    a { color: inherit; text-decoration: none; }
+
+    .progress {
+      position: fixed;
+      inset: 0 0 auto;
+      height: 4px;
+      background: rgba(255,255,255,.08);
+      z-index: 20;
+    }
+    .progress span {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--blue), var(--blue-2), var(--silver));
+      transition: width .25s ease;
+    }
+    .dots {
+      position: fixed;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: grid;
+      gap: 8px;
+      z-index: 20;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.48);
+      background: transparent;
+      padding: 0;
+      cursor: pointer;
+    }
+    .dot.is-active {
+      background: var(--blue-2);
+      border-color: var(--blue-2);
+      transform: scale(1.22);
+    }
+    .nav-btns {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      display: flex;
+      gap: 8px;
+      z-index: 20;
+    }
+    .nav-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(0,0,0,.35);
+      color: var(--paper);
+      font-weight: 900;
+      cursor: pointer;
+      backdrop-filter: blur(12px);
+    }
+
+    .deck { scroll-snap-type: y mandatory; }
+    .slide {
+      min-height: 100vh;
+      scroll-snap-align: start;
+      display: grid;
+      place-items: center;
+      padding: 72px 72px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .slide::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(8,198,255,.42), transparent);
+      opacity: .7;
+    }
+    .slide::before {
+      content: attr(data-index);
+      position: absolute;
+      right: 52px;
+      top: 44px;
+      font-size: 5.5rem;
+      line-height: 1;
+      font-weight: 900;
+      color: rgba(255,255,255,.1);
+    }
+    .wrap {
+      width: min(100%, var(--max));
+      position: relative;
+      z-index: 2;
+    }
+    .tight { max-width: 940px; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--blue-2);
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: currentColor;
+    }
+    h1 {
+      max-width: 1050px;
+      font-size: clamp(3.6rem, 7.4vw, 6.9rem);
+      line-height: .9;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      text-wrap: balance;
+    }
+    h2 {
+      max-width: 1030px;
+      font-size: clamp(2.8rem, 6.4vw, 5.2rem);
+      line-height: .95;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+    h3 {
+      font-size: 1.2rem;
+      line-height: 1.18;
+      font-weight: 900;
+    }
+    p {
+      max-width: 790px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+    .lead {
+      margin-top: 24px;
+      max-width: 860px;
+      color: rgba(245,248,255,.86);
+      font-size: clamp(1.25rem, 2.1vw, 1.72rem);
+      line-height: 1.25;
+      font-weight: 700;
+    }
+    .accent { color: var(--blue-2); }
+    .silver { color: var(--silver); }
+    .mini {
+      margin-top: 22px;
+      color: rgba(245,248,255,.56);
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-size: .78rem;
+      font-weight: 900;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr .9fr;
+      gap: 54px;
+      align-items: center;
+    }
+    .word-stack {
+      margin-top: 22px;
+      display: grid;
+      gap: 8px;
+      color: rgba(245,248,255,.92);
+      font-size: clamp(1.45rem, 2.6vw, 2.45rem);
+      line-height: .95;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+    .proposal {
+      margin-top: 22px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .pill {
+      display: inline-flex;
+      width: fit-content;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.075);
+      border-radius: 999px;
+      padding: 11px 16px;
+      color: rgba(245,248,255,.86);
+      font-size: .84rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .device-stage {
+      position: relative;
+      min-height: 580px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 24%, rgba(8,198,255,.25), transparent 18rem),
+        linear-gradient(180deg, rgba(255,255,255,.1), rgba(255,255,255,.025));
+      box-shadow: var(--shadow);
+    }
+    .device-stage::before {
+      content: "";
+      position: absolute;
+      inset: 36px;
+      border: 1px solid rgba(8,198,255,.28);
+      border-radius: var(--radius);
+      box-shadow: inset 0 0 42px rgba(8,198,255,.08);
+    }
+    .phone {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 250px;
+      height: 500px;
+      transform: translate(-50%, -50%) rotate(-7deg);
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 34px;
+      padding: 14px;
+      background: #02040a;
+      box-shadow: 0 34px 90px rgba(0,0,0,.5);
+    }
+    .phone-screen {
+      height: 100%;
+      border-radius: 25px;
+      background:
+        radial-gradient(circle at 58% 18%, rgba(255,255,255,.42), transparent 8rem),
+        linear-gradient(150deg, #101f4a, #0a84ff 45%, #04050a 82%);
+      overflow: hidden;
+      position: relative;
+    }
+    .phone-screen::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(110deg, transparent 0 25px, rgba(255,255,255,.07) 25px 27px),
+        linear-gradient(to top, rgba(0,0,0,.64), transparent 46%);
+    }
+    .phone-copy {
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 22px;
+      z-index: 2;
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1;
+      font-size: 1.8rem;
+    }
+    .orbit {
+      position: absolute;
+      inset: 66px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 50%;
+      animation: spin 28s linear infinite;
+    }
+    .orbit::before,
+    .orbit::after {
+      content: "";
+      position: absolute;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--blue-2);
+      box-shadow: 0 0 24px rgba(8,198,255,.8);
+    }
+    .orbit::before { top: 12%; left: 12%; }
+    .orbit::after { right: 16%; bottom: 9%; background: var(--silver); }
+
+    .audience-band {
+      margin-top: 28px;
+      border: 1px solid rgba(8,198,255,.28);
+      border-radius: var(--radius);
+      background: linear-gradient(90deg, rgba(8,198,255,.13), rgba(255,255,255,.045));
+      display: grid;
+      grid-template-columns: 1.1fr repeat(5, 1fr);
+      gap: 0;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .audience-band span,
+    .audience-kicker {
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      padding: 18px;
+      border-right: 1px solid rgba(255,255,255,.12);
+      color: rgba(245,248,255,.88);
+      font-size: .92rem;
+      line-height: 1.18;
+      font-weight: 900;
+    }
+    .audience-band span:last-child { border-right: 0; }
+    .audience-kicker {
+      color: var(--blue-2);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .76rem;
+    }
+
+    .golf-visual {
+      position: relative;
+      min-height: 560px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #05070d;
+      box-shadow: var(--shadow);
+    }
+    .golf-visual img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.04) contrast(1.03);
+    }
+    .golf-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.78)),
+        linear-gradient(118deg, rgba(5,7,13,.1), rgba(5,7,13,.72) 70%),
+        radial-gradient(circle at 86% 18%, rgba(8,198,255,.22), transparent 15rem);
+    }
+    .golf-visual::after {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      z-index: 2;
+      border: 1px solid rgba(8,198,255,.28);
+      border-radius: calc(var(--radius) - 2px);
+      pointer-events: none;
+      box-shadow: inset 0 0 44px rgba(8,198,255,.08);
+    }
+    .luxury-panel {
+      position: absolute;
+      left: 26px;
+      top: 26px;
+      z-index: 3;
+      width: min(78%, 420px);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: var(--radius);
+      background: rgba(3,7,13,.48);
+      backdrop-filter: blur(14px);
+      padding: 18px;
+    }
+    .luxury-panel strong {
+      display: block;
+      color: var(--paper);
+      font-size: clamp(1.45rem, 2.5vw, 2.1rem);
+      line-height: .98;
+      text-transform: uppercase;
+    }
+    .luxury-panel span {
+      display: block;
+      margin-top: 10px;
+      color: rgba(245,248,255,.72);
+      font-size: .9rem;
+      line-height: 1.35;
+      font-weight: 800;
+    }
+    .golf-caption {
+      position: absolute;
+      left: 26px;
+      right: 26px;
+      bottom: 26px;
+      z-index: 3;
+      color: rgba(245,248,255,.9);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: .92rem;
+    }
+
+    .hub-slide {
+      place-items: stretch;
+      padding: 0;
+    }
+    .hub-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.08) contrast(1.08);
+    }
+    .hub-slide::before {
+      z-index: 1;
+      color: rgba(255,255,255,.1);
+    }
+    .hub-slide::after {
+      height: auto;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(90deg, rgba(2,4,10,.94) 0%, rgba(2,4,10,.74) 34%, rgba(2,4,10,.18) 68%, rgba(2,4,10,.64) 100%),
+        linear-gradient(180deg, rgba(2,4,10,.3), rgba(2,4,10,.86));
+    }
+    .hub-content {
+      min-height: 100vh;
+      width: min(100%, var(--max));
+      margin: 0 auto;
+      padding: 72px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+    }
+    .hub-content h2 {
+      max-width: 980px;
+      font-size: clamp(4.4rem, 8.8vw, 8rem);
+      line-height: .86;
+      text-transform: uppercase;
+    }
+    .hub-content .lead {
+      max-width: 760px;
+    }
+    .hub-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+      max-width: 820px;
+    }
+    .hub-pills span {
+      border: 1px solid rgba(8,198,255,.34);
+      border-radius: 999px;
+      background: rgba(5,7,13,.5);
+      backdrop-filter: blur(12px);
+      color: rgba(245,248,255,.9);
+      padding: 11px 14px;
+      font-size: .84rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 34px;
+    }
+    .grid.two { grid-template-columns: repeat(2, 1fr); }
+    .grid.four { grid-template-columns: repeat(4, 1fr); }
+    .grid.five { grid-template-columns: repeat(5, 1fr); }
+    .pathways-slide h2 {
+      font-size: clamp(2.7rem, 5.1vw, 4.45rem);
+    }
+    .pathways-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+    .card, .stat, .pathway {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      padding: 24px;
+      min-height: 210px;
+      box-shadow: var(--shadow);
+    }
+    .card p, .pathway p {
+      margin-top: 12px;
+      font-size: .98rem;
+      color: rgba(245,248,255,.7);
+    }
+    .pathway.compact {
+      min-height: 284px;
+      padding: 19px;
+      gap: 12px;
+    }
+    .pathway-label {
+      color: var(--blue-2);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .72rem;
+      font-weight: 900;
+      margin-bottom: 7px;
+    }
+    .pathway.compact h3 {
+      text-transform: uppercase;
+      letter-spacing: .02em;
+      font-size: 1.12rem;
+      line-height: 1.08;
+    }
+    .pathway.compact .price {
+      margin: 10px 0 12px;
+      padding: 9px 13px;
+      font-size: .96rem;
+    }
+    .integration-label {
+      color: rgba(245,248,255,.92);
+      font-size: .76rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 8px;
+    }
+    .pathway-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 5px 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .pathway-list li {
+      position: relative;
+      padding-left: 13px;
+      color: rgba(245,248,255,.76);
+      font-size: .78rem;
+      line-height: 1.2;
+    }
+    .pathway-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .45em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--blue-2);
+    }
+    .pathway-summary {
+      margin-top: 12px;
+      color: rgba(245,248,255,.68);
+      font-size: .82rem;
+      line-height: 1.28;
+      font-weight: 700;
+    }
+    .stat {
+      min-height: 150px;
+      box-shadow: none;
+    }
+    .stat strong {
+      display: block;
+      color: var(--blue-2);
+      font-size: 2.2rem;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .stat span {
+      display: block;
+      color: rgba(245,248,255,.72);
+      font-size: .95rem;
+    }
+    .statement {
+      max-width: 1120px;
+      font-size: clamp(3.4rem, 7vw, 6.6rem);
+      line-height: .94;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+    .signal {
+      margin-top: 28px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .signal span {
+      border: 1px solid rgba(8,198,255,.32);
+      color: rgba(245,248,255,.86);
+      background: rgba(8,198,255,.08);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: .84rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .split {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .quote {
+      border-left: 4px solid var(--blue-2);
+      padding-left: 24px;
+      color: rgba(245,248,255,.9);
+      font-size: clamp(1.45rem, 2.8vw, 2.35rem);
+      line-height: 1.15;
+      font-weight: 900;
+      max-width: 880px;
+    }
+    .list {
+      display: grid;
+      gap: 12px;
+      margin: 20px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .list li {
+      position: relative;
+      padding-left: 22px;
+      color: rgba(245,248,255,.76);
+      line-height: 1.4;
+    }
+    .list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .62em;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--blue-2);
+      box-shadow: 0 0 14px rgba(8,198,255,.62);
+    }
+    .activation-stack {
+      display: grid;
+      gap: 13px;
+      margin-top: 20px;
+    }
+    .activation-item {
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+    }
+    .activation-item:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+    .activation-item h3 {
+      color: var(--paper);
+      font-size: 1.05rem;
+    }
+    .activation-item p {
+      margin-top: 6px;
+      max-width: none;
+      font-size: .92rem;
+      line-height: 1.35;
+      color: rgba(245,248,255,.7);
+    }
+    .journey {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      margin-top: 38px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: rgba(255,255,255,.045);
+    }
+    .journey.four { grid-template-columns: repeat(4, 1fr); }
+    .journey.five { grid-template-columns: repeat(5, 1fr); }
+    .step {
+      min-height: 230px;
+      padding: 19px;
+      border-right: 1px solid var(--line);
+      position: relative;
+    }
+    .step:last-child { border-right: 0; }
+    .step .label {
+      color: var(--blue-2);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .72rem;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+    .step p { font-size: .9rem; }
+    .step::after {
+      content: "";
+      position: absolute;
+      left: 19px;
+      right: 19px;
+      bottom: 22px;
+      height: 4px;
+      transform: scaleX(.4);
+      transform-origin: left;
+      background: linear-gradient(90deg, var(--blue), var(--blue-2), var(--silver));
+      transition: transform .5s ease;
+    }
+    .slide.is-visible .step::after { transform: scaleX(1); }
+    .pathway {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 22px;
+      min-height: 420px;
+    }
+    .price {
+      display: inline-flex;
+      width: fit-content;
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: var(--blue-2);
+      color: #02111b;
+      font-weight: 900;
+    }
+    .price.custom {
+      background: rgba(255,255,255,.12);
+      color: var(--paper);
+      border: 1px solid var(--line);
+    }
+    .investment-note {
+      margin-top: 22px;
+      max-width: 980px;
+      color: rgba(245,248,255,.74);
+      font-size: .98rem;
+      font-weight: 800;
+    }
+    .thin-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 22px;
+    }
+    .thin-list span {
+      display: block;
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+      color: rgba(245,248,255,.78);
+      font-weight: 800;
+    }
+    .close-line {
+      margin-top: 34px;
+      color: var(--blue-2);
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1;
+      font-weight: 900;
+      text-transform: uppercase;
+      max-width: 850px;
+    }
+    .closing-slide {
+      background:
+        radial-gradient(circle at 72% 42%, rgba(8,198,255,.18), transparent 24rem),
+        linear-gradient(145deg, #02040a 0%, #07111f 48%, #000 100%);
+    }
+    .closing-slide .wrap {
+      max-width: 1260px;
+    }
+    .closing-slide h2 {
+      max-width: 1180px;
+      font-size: clamp(5.2rem, 10vw, 9.4rem);
+      line-height: .86;
+      text-transform: uppercase;
+    }
+    .closing-subtitle {
+      margin-top: 26px;
+      color: rgba(245,248,255,.86);
+      font-size: clamp(1.2rem, 2.5vw, 2rem);
+      line-height: 1.15;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      max-width: 900px;
+    }
+    .closing-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+    .closing-meta span {
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 999px;
+      background: rgba(255,255,255,.07);
+      padding: 12px 16px;
+      color: rgba(245,248,255,.86);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      font-size: .86rem;
+    }
+
+    .reveal { opacity: 1; transform: none; }
+    .slide.is-visible .reveal {
+      animation: revealIn .55s cubic-bezier(.18,.9,.2,1) both;
+      animation-delay: var(--delay, 0ms);
+    }
+    @keyframes revealIn {
+      from { opacity: 0; transform: translateY(26px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 1060px) {
+      .slide { padding: 64px 40px; }
+      .slide::before { right: 34px; top: 34px; font-size: 4rem; }
+      .hero-grid, .split { grid-template-columns: 1fr; }
+      .device-stage { min-height: 460px; }
+      .phone { width: 210px; height: 420px; }
+      .grid, .grid.four, .grid.five { grid-template-columns: 1fr 1fr; }
+      .journey, .journey.four, .journey.five { grid-template-columns: 1fr 1fr; }
+      .audience-band { grid-template-columns: repeat(2, 1fr); }
+      .audience-kicker { grid-column: 1 / -1; }
+      .golf-visual { min-height: 480px; }
+      .hub-content { padding: 64px 40px; }
+      .step { border-bottom: 1px solid var(--line); }
+      .step:nth-child(2n) { border-right: 0; }
+      .step:last-child { border-bottom: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .orbit { animation: none; }
+      .slide.is-visible .reveal { animation: none; }
+      .step::after, .progress span { transition: none; }
+    }
+
+    @media (max-width: 720px) {
+      .deck { scroll-snap-type: none; }
+      .slide {
+        min-height: auto;
+        padding: 72px 20px 58px;
+        scroll-snap-align: none;
+      }
+      .slide::before, .dots { display: none; }
+      h1 {
+        font-size: 3.05rem;
+        line-height: 1.02;
+        padding-bottom: .08em;
+      }
+      h2 {
+        font-size: 2.35rem;
+        line-height: 1.04;
+        padding-bottom: .08em;
+      }
+      .statement { font-size: 3rem; }
+      .close-line { line-height: 1.06; padding-bottom: .08em; }
+      .lead { font-size: 1.08rem; }
+      .grid, .grid.two, .grid.four, .grid.five, .journey, .journey.four, .journey.five { grid-template-columns: 1fr; }
+      .audience-band { grid-template-columns: 1fr; }
+      .audience-band span,
+      .audience-kicker {
+        min-height: auto;
+        border-right: 0;
+        border-bottom: 1px solid rgba(255,255,255,.12);
+        padding: 14px;
+      }
+      .audience-band span:last-child { border-bottom: 0; }
+      .golf-visual { min-height: 520px; }
+      .luxury-panel {
+        left: 18px;
+        right: 18px;
+        top: 18px;
+        width: auto;
+      }
+      .luxury-panel strong { font-size: 1.28rem; }
+      .hub-content {
+        min-height: 100vh;
+        padding: 72px 20px 58px;
+        justify-content: flex-end;
+      }
+      .hub-content h2 { font-size: 3.85rem; }
+      .hub-pills span { font-size: .72rem; padding: 9px 11px; }
+      .closing-slide h2 { font-size: 4.1rem; }
+      .closing-subtitle { font-size: 1rem; }
+      .closing-meta span { font-size: .72rem; }
+      .step, .step:nth-child(2n) { border-right: 0; border-bottom: 1px solid var(--line); }
+      .step:last-child { border-bottom: 0; }
+      .device-stage { min-height: 390px; }
+      .phone { width: 170px; height: 340px; }
+      .phone-copy {
+        left: 16px;
+        right: 16px;
+        bottom: 18px;
+        font-size: 1.18rem;
+      }
+      .orbit { inset: 48px; }
+      .nav-btns { right: 12px; bottom: 12px; }
+    }
+
+    @media print {
+      @page { size: 16in 9in; margin: 0; }
+      * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      html,
+      body {
+        width: 16in;
+        margin: 0;
+        overflow: visible;
+        background: #05070d;
+      }
+      .progress, .dots, .nav-btns { display: none !important; }
+      .deck {
+        width: 16in;
+        scroll-snap-type: none;
+      }
+      .slide {
+        width: 16in;
+        height: 9in;
+        min-height: 9in;
+        padding: .55in .68in;
+        border-bottom: 0;
+        page-break-after: always;
+        break-after: page;
+        overflow: hidden;
+      }
+      .slide:last-child {
+        page-break-after: auto;
+        break-after: auto;
+      }
+      .slide::before {
+        right: .52in;
+        top: .38in;
+        font-size: 72pt;
+      }
+      .wrap {
+        width: 100%;
+        max-width: 14.65in;
+      }
+      .tight { max-width: 11.2in; }
+      .hero-grid {
+        grid-template-columns: 1.05fr .82fr;
+        gap: .48in;
+      }
+      h1 {
+        max-width: 9.1in;
+        font-size: 60pt;
+        line-height: .93;
+      }
+      h2 {
+        max-width: 11.3in;
+        font-size: 46pt;
+        line-height: 1;
+      }
+      .statement {
+        max-width: 12.5in;
+        font-size: 56pt;
+        line-height: .95;
+      }
+      .split h2 { font-size: 42pt; }
+      h3 {
+        font-size: 15pt;
+        line-height: 1.18;
+      }
+      p {
+        max-width: 8.45in;
+        font-size: 11.2pt;
+        line-height: 1.34;
+      }
+      .lead {
+        max-width: 9.3in;
+        margin-top: .2in;
+        font-size: 17pt;
+        line-height: 1.25;
+      }
+      .eyebrow {
+        margin-bottom: .16in;
+        font-size: 8.4pt;
+      }
+      .word-stack {
+        margin-top: .18in;
+        gap: .06in;
+        font-size: 24pt;
+        line-height: 1;
+      }
+      .proposal {
+        margin-top: .18in;
+        gap: .09in;
+      }
+      .pill {
+        padding: .08in .12in;
+        font-size: 8pt;
+      }
+      .device-stage {
+        min-height: auto;
+        height: 6.85in;
+      }
+      .device-stage::before { inset: .32in; }
+      .phone {
+        width: 2.28in;
+        height: 4.65in;
+      }
+      .phone-copy { font-size: 21pt; }
+      .audience-band {
+        grid-template-columns: 1.15fr repeat(5, 1fr);
+        margin-top: .22in;
+      }
+      .audience-band span,
+      .audience-kicker {
+        min-height: .78in;
+        padding: .12in;
+        font-size: 9pt;
+      }
+      .audience-kicker {
+        font-size: 7.2pt;
+      }
+      .golf-visual {
+        min-height: auto;
+        height: 5.8in;
+      }
+      .luxury-panel {
+        left: .22in;
+        top: .22in;
+        width: 3.95in;
+        padding: .16in;
+      }
+      .luxury-panel strong {
+        font-size: 18pt;
+      }
+      .luxury-panel span {
+        font-size: 8.6pt;
+      }
+      .golf-caption {
+        left: .24in;
+        right: .24in;
+        bottom: .22in;
+        font-size: 8.5pt;
+      }
+      .hub-slide {
+        padding: 0;
+      }
+      .hub-content {
+        min-height: 9in;
+        padding: .55in .68in;
+      }
+      .hub-content h2 {
+        font-size: 69pt;
+        max-width: 8.8in;
+        line-height: .88;
+      }
+      .hub-content .lead {
+        max-width: 7.8in;
+        font-size: 16pt;
+      }
+      .hub-pills {
+        margin-top: .22in;
+        gap: .08in;
+      }
+      .hub-pills span {
+        padding: .08in .11in;
+        font-size: 8pt;
+      }
+      .grid {
+        gap: .15in;
+        margin-top: .28in;
+      }
+      .pathways-slide h2 {
+        font-size: 36pt;
+        max-width: 10.5in;
+      }
+      .pathways-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: .13in;
+        margin-top: .2in;
+      }
+      .grid.four { grid-template-columns: repeat(4, 1fr); }
+      .grid.five { grid-template-columns: repeat(5, 1fr); }
+      .card,
+      .stat,
+      .pathway {
+        padding: .2in;
+        min-height: 1.72in;
+      }
+      .card p,
+      .pathway p {
+        margin-top: .1in;
+        font-size: 10.2pt;
+        line-height: 1.3;
+      }
+      .pathway.compact {
+        min-height: 2.28in;
+        padding: .15in;
+      }
+      .pathway-label {
+        font-size: 7pt;
+        margin-bottom: .04in;
+      }
+      .pathway.compact h3 {
+        font-size: 12.5pt;
+      }
+      .pathway.compact .price {
+        margin: .08in 0 .09in;
+        padding: .07in .1in;
+        font-size: 10.5pt;
+      }
+      .integration-label {
+        margin-bottom: .05in;
+        font-size: 6.7pt;
+      }
+      .pathway-list {
+        gap: .035in .07in;
+      }
+      .pathway-list li {
+        padding-left: .1in;
+        font-size: 7.3pt;
+        line-height: 1.15;
+      }
+      .pathway-list li::before {
+        width: .04in;
+        height: .04in;
+      }
+      .pathway-summary {
+        margin-top: .08in;
+        font-size: 7.7pt;
+        line-height: 1.18;
+      }
+      .grid.two .card { min-height: 3in; }
+      .split {
+        gap: .42in;
+      }
+      .quote {
+        padding-left: .2in;
+        font-size: 25pt;
+        line-height: 1.16;
+      }
+      .list {
+        gap: .08in;
+        margin-top: .14in;
+      }
+      .list li {
+        padding-left: .2in;
+        font-size: 10.9pt;
+        line-height: 1.28;
+      }
+      .list li::before {
+        width: .07in;
+        height: .07in;
+      }
+      .activation-stack {
+        gap: .1in;
+        margin-top: .13in;
+      }
+      .activation-item {
+        padding-top: .1in;
+      }
+      .activation-item h3 {
+        font-size: 12.4pt;
+      }
+      .activation-item p {
+        margin-top: .04in;
+        font-size: 9.1pt;
+        line-height: 1.25;
+      }
+      .journey {
+        grid-template-columns: repeat(6, 1fr);
+        margin-top: .22in;
+      }
+      .journey.four { grid-template-columns: repeat(4, 1fr); }
+      .journey.five { grid-template-columns: repeat(5, 1fr); }
+      .step {
+        min-height: 2.1in;
+        padding: .16in;
+      }
+      .step h3 {
+        font-size: 12.5pt;
+      }
+      .step .label {
+        margin-bottom: .1in;
+        font-size: 7.8pt;
+      }
+      .step p {
+        font-size: 8.7pt;
+        line-height: 1.24;
+      }
+      .step::after {
+        left: .16in;
+        right: .16in;
+        bottom: .18in;
+      }
+      .pathway {
+        min-height: 3.55in;
+        gap: .16in;
+      }
+      .price {
+        padding: .09in .13in;
+        font-size: 13pt;
+      }
+      .investment-note {
+        max-width: 10.6in;
+        margin-top: .18in;
+        font-size: 10.5pt;
+        line-height: 1.25;
+      }
+      .close-line {
+        max-width: 9.5in;
+        margin-top: .28in;
+        font-size: 33pt;
+        line-height: 1.03;
+      }
+      .closing-slide h2 {
+        max-width: 12.1in;
+        font-size: 82pt;
+        line-height: .88;
+      }
+      .closing-subtitle {
+        margin-top: .22in;
+        font-size: 18pt;
+      }
+      .closing-meta {
+        margin-top: .25in;
+        gap: .1in;
+      }
+      .closing-meta span {
+        padding: .09in .13in;
+        font-size: 8pt;
+      }
+      .reveal,
+      .slide.is-visible .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress"><span></span></div>
+  <nav class="dots" aria-label="Slide navigation"></nav>
+  <div class="nav-btns">
+    <button class="nav-btn" data-prev aria-label="Previous slide">&lt;</button>
+    <button class="nav-btn" data-next aria-label="Next slide">&gt;</button>
+  </div>
+
+  <main class="deck">
+    <section class="slide" data-index="01">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow reveal">Partnership Proposal</div>
+          <h1 class="reveal">SAMSUNG GALAXY x HCE Sun City Takeover 2026</h1>
+          <div class="word-stack reveal">
+            <span>Powering The Future</span>
+            <span>Of Experience.</span>
+          </div>
+          <div class="proposal reveal">
+            <span class="pill">Homecoming Events</span>
+            <span class="pill">Presented by Impacta Agency</span>
+          </div>
+        </div>
+        <div class="device-stage reveal" aria-label="Samsung Galaxy technology visual">
+          <div class="orbit"></div>
+          <div class="phone">
+            <div class="phone-screen">
+              <div class="phone-copy">Create<br />Connect<br />Share</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-index="02">
+      <div class="wrap split">
+        <div>
+          <div class="eyebrow reveal">The Future Is Already Here</div>
+          <h2 class="reveal">The next evolution of South Africa's destination experience.</h2>
+          <p class="lead reveal">The HCE Sun City Takeover 2026 creates a bigger, bolder and more immersive world across four days of music, culture, lifestyle, entertainment and connection.</p>
+        </div>
+        <div>
+          <div class="statement reveal">Bigger.<br />Bolder.<br />More immersive.</div>
+          <div class="signal reveal">
+            <span>Experience</span>
+            <span>Capture</span>
+            <span>Create</span>
+            <span>Share</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-index="03">
+      <div class="wrap">
+        <div class="eyebrow reveal">The HCE Sun City Takeover</div>
+        <h2 class="reveal">One weekend. Multiple experiences. Endless possibilities.</h2>
+        <div class="journey four reveal">
+          <div class="step"><div class="label">Friday</div><h3>Golfontein</h3><p>Golf day, premium lifestyle and business community.</p></div>
+          <div class="step"><div class="label">Saturday</div><h3>Run, Padel, Beach, White</h3><p>High-dwell social environments and immersive audience moments.</p></div>
+          <div class="step"><div class="label">Sunday</div><h3>Day Clubs + FonCity</h3><p>Culture, music, creativity and the weekend finale.</p></div>
+          <div class="step"><div class="label">Monday</div><h3>Majita Monday</h3><p>Extended visibility, social connection and weekend reflection.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-index="04">
+      <div class="wrap">
+        <div class="eyebrow reveal">The Scale Of The Opportunity</div>
+        <h2 class="reveal">This is not a single event. It is an ecosystem of experiences.</h2>
+        <div class="grid five reveal">
+          <div class="stat"><strong>3,500</strong><span>attendees</span></div>
+          <div class="stat"><strong>1 hour</strong><span>2025 sell-out window</span></div>
+          <div class="stat"><strong>4 days</strong><span>destination experience</span></div>
+          <div class="stat"><strong>300k+</strong><span>combined social audience</span></div>
+          <div class="stat"><strong>30k+</strong><span>monthly website visitors</span></div>
+        </div>
+        <div class="audience-band reveal">
+          <div class="audience-kicker">Audience Snapshot</div>
+          <span>23-45 years old</span>
+          <span>Young professionals</span>
+          <span>Entrepreneurs</span>
+          <span>Culture drivers</span>
+          <span>Premium lifestyle consumers</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-index="05">
+      <div class="wrap">
+        <div class="eyebrow reveal">Why Samsung Galaxy</div>
+        <h2 class="reveal">Galaxy enables every stage of the modern event journey.</h2>
+        <div class="grid reveal">
+          <div class="card"><h3>Innovation</h3><p>Galaxy AI and mobile technology designed for useful, memorable experiences.</p></div>
+          <div class="card"><h3>Creativity</h3><p>Creator tools that help audiences capture, edit and post in the moment.</p></div>
+          <div class="card"><h3>Culture</h3><p>Music, lifestyle and social-first spaces where Galaxy feels native.</p></div>
+          <div class="card"><h3>Content Creation</h3><p>Shot on Galaxy moments across the full weekend ecosystem.</p></div>
+          <div class="card"><h3>Community</h3><p>Interactive experiences that drive participation, not interruption.</p></div>
+          <div class="card"><h3>Connection</h3><p>Galaxy S, Z, Watch and Buds working as part of the experience.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-index="06">
+      <div class="wrap split">
+        <div>
+          <div class="eyebrow reveal">A Journey Into The Future</div>
+          <h2 class="reveal">FonCity is where music, culture, creativity and innovation converge.</h2>
+          <p class="lead reveal">For 2026, the experience embraces a future-facing world. That creates a natural space for Samsung Galaxy to move beyond sponsorship and become part of the experience itself.</p>
+        </div>
+        <div>
+          <div class="quote reveal">Not simply seen. Experienced.<br />Not simply present. Participating.<br />Not simply advertising. Creating moments.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-index="07">
+      <div class="wrap">
+        <div class="eyebrow reveal">Where Samsung Galaxy Fits</div>
+        <h2 class="reveal">A Galaxy-powered layer across every stage of the experience.</h2>
+        <div class="grid five reveal">
+          <div class="card"><h3>Golfontein</h3><p>Premium lifestyle, networking and business community.</p></div>
+          <div class="card"><h3>Day Clubs</h3><p>High dwell time, product experiences and social engagement.</p></div>
+          <div class="card"><h3>Beach + All White</h3><p>Photography, Nightography and audience interaction.</p></div>
+          <div class="card"><h3>FonCity</h3><p>Culture, music, creativity and community.</p></div>
+          <div class="card"><h3>Majita Monday</h3><p>Extended visibility and weekend reflection.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-index="08">
+      <div class="wrap split">
+        <div>
+          <div class="eyebrow reveal">Golfontein x Samsung Galaxy</div>
+          <h2 class="reveal">Where premium lifestyle meets innovation.</h2>
+          <p class="lead reveal">Golfontein serves as the official opening event of the HCE Sun City Takeover, bringing together professionals, entrepreneurs, executives and business leaders before the broader weekend experience begins.</p>
+          <div class="signal reveal">
+            <span>Executives</span>
+            <span>Entrepreneurs</span>
+            <span>Founders</span>
+            <span>Premium Consumers</span>
+          </div>
+        </div>
+        <div class="golf-visual reveal" aria-label="Premium golf hospitality and networking visual">
+          <img src="assets/golfontein-luxury-hospitality.png" alt="Premium golf resort hospitality with executives networking" />
+          <div class="luxury-panel">
+            <strong>Affluent consumers, captured in a premium lifestyle environment.</strong>
+            <span>Golfontein gives Galaxy access to business leaders before the broader weekend begins.</span>
+          </div>
+          <div class="golf-caption">Galaxy Lounge / Premium Hospitality / Shot on Galaxy Golf Series</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-index="09">
+      <div class="wrap">
+        <div class="eyebrow reveal">Day Clubs x Samsung Galaxy</div>
+        <h2 class="reveal">Three day clubs. Three distinct audiences. One connected Galaxy experience.</h2>
+        <div class="grid four reveal">
+          <div class="card"><h3>Samsung Galaxy Day Club</h3><p>A named high-dwell environment for social engagement and product discovery.</p></div>
+          <div class="card"><h3>Galaxy AI Zones</h3><p>Interactive installations and product demonstrations across the club experience.</p></div>
+          <div class="card"><h3>Photography Moments</h3><p>Premium content stations built for audience posts and creator storytelling.</p></div>
+          <div class="card"><h3>Hospitality Integration</h3><p>A Galaxy Lounge and premium audience touchpoints throughout the day.</p></div>
+        </div>
+        <p class="lead reveal">From sunrise pool experiences to late-night cultural moments, Samsung Galaxy remains part of the attendee journey.</p>
+      </div>
+    </section>
+
+    <section class="slide hub-slide" data-index="10">
+      <img class="hub-bg" src="assets/galaxy-future-hub-concept.png" alt="Galaxy Future Hub concept environment" />
+      <div class="hub-content">
+        <div class="eyebrow reveal">The Big Idea</div>
+        <h2 class="reveal">Galaxy Future Hub</h2>
+        <p class="lead reveal">A Samsung-powered destination where guests experience Galaxy AI, creator tools and future-facing technology inside the world of the Takeover.</p>
+        <div class="hub-pills reveal">
+          <span>Galaxy AI</span>
+          <span>Future Content Studios</span>
+          <span>Nightography</span>
+          <span>Creator Capture</span>
+          <span>Galaxy Ecosystem</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-index="11">
+      <div class="wrap">
+        <div class="eyebrow reveal">Shot On Galaxy</div>
+        <h2 class="reveal">Every attendee becomes a storyteller. Every experience becomes content.</h2>
+        <div class="journey reveal">
+          <div class="step"><div class="label">01</div><h3>Weekend Series</h3><p>A Shot on Galaxy narrative across the full Takeover.</p></div>
+          <div class="step"><div class="label">02</div><h3>Nightography</h3><p>Capturing future-facing nightlife and performance moments.</p></div>
+          <div class="step"><div class="label">03</div><h3>Talent Content</h3><p>Artist, creator and behind-the-scenes coverage.</p></div>
+          <div class="step"><div class="label">04</div><h3>Audience Stories</h3><p>Attendee-led storytelling and social challenges.</p></div>
+          <div class="step"><div class="label">05</div><h3>Creator Collabs</h3><p>Content made with selected creators and Galaxy devices.</p></div>
+          <div class="step"><div class="label">06</div><h3>Amplification</h3><p>Value beyond the event through content distribution.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide pathways-slide" data-index="12">
+      <div class="wrap">
+        <div class="eyebrow reveal">Partnership Pathways</div>
+        <h2 class="reveal">How Samsung Galaxy could participate.</h2>
+        <div class="grid pathways-grid reveal">
+          <div class="pathway compact">
+            <div>
+              <div class="pathway-label">Option 1</div>
+              <h3>Golfontein Diamond Partner</h3>
+              <span class="price">R250,000</span>
+              <div class="integration-label">Potential Samsung Galaxy Integration</div>
+              <ul class="pathway-list">
+                <li>Samsung Galaxy Lounge</li>
+                <li>Shot on Galaxy Golf Series</li>
+                <li>Premium Hospitality</li>
+                <li>Networking Experiences</li>
+                <li>Product Demonstrations</li>
+                <li>Wearable Technology Showcase</li>
+              </ul>
+              <div class="pathway-summary">A targeted opportunity to engage professionals, entrepreneurs and business leaders within a premium lifestyle environment.</div>
+            </div>
+          </div>
+          <div class="pathway compact">
+            <div>
+              <div class="pathway-label">Option 2</div>
+              <h3>Activation Sponsor</h3>
+              <span class="price">R800,000</span>
+              <div class="integration-label">Potential Samsung Galaxy Integration</div>
+              <ul class="pathway-list">
+                <li>Galaxy Future Hub</li>
+                <li>Galaxy AI Experiences</li>
+                <li>Product Demonstrations</li>
+                <li>Audience Engagement</li>
+                <li>Content Creation</li>
+              </ul>
+              <div class="pathway-summary">A multi-location activation opportunity across the Sun City Takeover weekend.</div>
+            </div>
+          </div>
+          <div class="pathway compact">
+            <div>
+              <div class="pathway-label">Option 3</div>
+              <h3>Day Club Naming Rights</h3>
+              <span class="price">R2,500,000</span>
+              <div class="integration-label">Potential Samsung Galaxy Integration</div>
+              <ul class="pathway-list">
+                <li>Samsung Galaxy Day Club</li>
+                <li>360-degree Brand Ownership</li>
+                <li>Premium Hospitality</li>
+                <li>Product Experiences</li>
+                <li>Extended Audience Engagement</li>
+              </ul>
+              <div class="pathway-summary">Exclusive ownership of one of the Takeover's Day Club destinations.</div>
+            </div>
+          </div>
+          <div class="pathway compact">
+            <div>
+              <div class="pathway-label">Option 4</div>
+              <h3>Weekend Technology Partner</h3>
+              <span class="price custom">Custom Investment</span>
+              <div class="integration-label">A bespoke Samsung Galaxy partnership spanning</div>
+              <ul class="pathway-list">
+                <li>Golfontein</li>
+                <li>Day Clubs</li>
+                <li>Beach Party</li>
+                <li>FonCity</li>
+                <li>Majita Monday</li>
+              </ul>
+              <div class="pathway-summary">Positioning Samsung Galaxy as the technology partner powering experiences throughout the entire Takeover ecosystem.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-index="13">
+      <div class="wrap split">
+        <div>
+          <div class="eyebrow reveal">Why This Partnership</div>
+          <h2 class="reveal">A stronger way for Galaxy to build cultural relevance.</h2>
+        </div>
+        <div class="card reveal">
+          <h3>Samsung Galaxy gains the opportunity to:</h3>
+          <ul class="list">
+            <li>Engage audiences across four days</li>
+            <li>Connect with both premium and youth audiences</li>
+            <li>Demonstrate Galaxy AI in real-world environments</li>
+            <li>Generate meaningful content</li>
+            <li>Build cultural relevance</li>
+            <li>Participate in moments rather than interrupt them</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide closing-slide" data-index="14">
+      <div class="wrap">
+        <div class="eyebrow reveal">Closing Statement</div>
+        <h2 class="reveal">The future is experienced.</h2>
+        <p class="closing-subtitle reveal">Samsung Galaxy x HCE Sun City Takeover 2026</p>
+        <div class="closing-meta reveal">
+          <span>Impacta Agency</span>
+          <span>Homecoming Events</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll(".slide"));
+    const dotsNav = document.querySelector(".dots");
+    const progress = document.querySelector(".progress span");
+    let activeIndex = 0;
+
+    slides.forEach((slide, index) => {
+      const dot = document.createElement("button");
+      dot.className = "dot";
+      dot.type = "button";
+      dot.setAttribute("aria-label", `Go to slide ${index + 1}`);
+      dot.addEventListener("click", () => goTo(index));
+      dotsNav.appendChild(dot);
+    });
+    const dots = Array.from(document.querySelectorAll(".dot"));
+
+    document.querySelectorAll(".reveal").forEach((el, index) => {
+      el.style.setProperty("--delay", `${Math.min(index % 4, 3) * 70}ms`);
+    });
+
+    function setActive(index) {
+      activeIndex = index;
+      slides.forEach((slide, i) => slide.classList.toggle("is-visible", i === index));
+      dots.forEach((dot, i) => dot.classList.toggle("is-active", i === index));
+      progress.style.width = `${((index + 1) / slides.length) * 100}%`;
+      document.title = `Samsung Galaxy x HCE | Slide ${index + 1} of ${slides.length}`;
+    }
+
+    function goTo(index) {
+      const next = Math.max(0, Math.min(slides.length - 1, index));
+      slides[next].scrollIntoView({ behavior: "smooth", block: "start" });
+      setActive(next);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) setActive(slides.indexOf(entry.target));
+      });
+    }, { threshold: .38 });
+    slides.forEach((slide) => observer.observe(slide));
+
+    document.querySelector("[data-next]").addEventListener("click", () => goTo(activeIndex + 1));
+    document.querySelector("[data-prev]").addEventListener("click", () => goTo(activeIndex - 1));
+    document.addEventListener("keydown", (event) => {
+      const nextKeys = ["ArrowDown", "ArrowRight", "PageDown", " "];
+      const prevKeys = ["ArrowUp", "ArrowLeft", "PageUp"];
+      if (nextKeys.includes(event.key)) {
+        event.preventDefault();
+        goTo(activeIndex + 1);
+      }
+      if (prevKeys.includes(event.key)) {
+        event.preventDefault();
+        goTo(activeIndex - 1);
+      }
+      if (event.key === "Home") {
+        event.preventDefault();
+        goTo(0);
+      }
+      if (event.key === "End") {
+        event.preventDefault();
+        goTo(slides.length - 1);
+      }
+    });
+
+    setActive(0);
+  </script>
+</body>
+</html>
